@@ -132,7 +132,7 @@ const Single: React.FC<SingleProps> = ({ item }) => {
         <div className="max-w-screen-xl h-full m-auto flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-[3.125rem] mt-20 lg:mt-8">
           <div
             ref={ref}
-            className="lg:h-[60%] h-[35%] w-[85%] lg:w-[50%] aspect-video lg:aspect-auto"
+            className="lg:h-[60%] h-[30%] w-[82%] lg:w-[50%] aspect-video lg:aspect-auto"
           >
             <Image
               src={item.img}
@@ -148,9 +148,7 @@ const Single: React.FC<SingleProps> = ({ item }) => {
             className="h-[40%] flex flex-col gap-4 lg:gap-6 items-center justify-center lg:justify-start lg:items-start text-center lg:text-start px-8"
           >
             <h2 className="text-4xl lg:text-6xl text-gray-800">{item.title}</h2>
-            <p className="text-sm lg:text-xl text-gray-800 lg:px-0">
-              {item.desc}
-            </p>
+            <p className="text-sm lg:text-xl text-gray-800">{item.desc}</p>
             <div className="flex gap-2 mt-2 lg:mt-3">
               {item.techStack.map((tech) => (
                 <span
