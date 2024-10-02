@@ -1,13 +1,12 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { useEffect, useState } from "react";
 
 const textVariants: Variants = {
-  initial: (isMobile: boolean) => ({
-    x: isMobile ? -50 : -500,
+  initial: {
+    x: -500,
     opacity: 0,
-  }),
+  },
   animate: {
     x: 0,
     opacity: 1,
@@ -31,32 +30,21 @@ const scrollButtonVariants: Variants = {
 };
 
 const Hero = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 700);
-    handleResize(); // Set initial value
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <div className="h-[calc(100vh-80px)] bg-gradient-to-b from-white to-purple-300 relative flex justify-center items-center overflow-hidden">
       <div className="max-w-screen-xl h-full m-auto">
         {/* Main Content */}
         <motion.div
           variants={textVariants}
-          custom={isMobile}
           initial="initial"
-          whileInView="animate"
+          animate="animate"
           className="w-full h-full flex flex-col justify-center gap-10 text-center text-gray-600"
         >
           {/* Header Text */}
           <motion.h2
             variants={textVariants}
-            custom={isMobile}
             initial="initial"
-            whileInView="animate"
+            animate="animate"
             className="text-2xl lg:text-3xl tracking-[0.625rem] text-gray-800"
             aria-label="Aditya Shiyale's name"
           >
@@ -66,8 +54,7 @@ const Hero = () => {
           <motion.h1
             variants={textVariants}
             initial="initial"
-            custom={isMobile}
-            whileInView="animate"
+            animate="animate"
             className="text-[2.5rem] lg:text-[5.5rem] leading-[3rem] lg:leading-[6.4rem] text-gray-800"
             aria-label="Fullstack Web Developer and Mobile Developer title"
           >
@@ -90,8 +77,7 @@ const Hero = () => {
             <motion.a
               variants={textVariants}
               initial="initial"
-              custom={isMobile}
-              whileInView="animate"
+              animate="animate"
               className="p-5 border rounded-[0.625rem] bg-purple-600 text-white hover:bg-purple-700 transition cursor-pointer"
               onClick={() => console.log("Contact button clicked")}
               aria-label="Contact me"
