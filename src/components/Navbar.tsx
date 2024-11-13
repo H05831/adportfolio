@@ -10,7 +10,7 @@ const Navbar = () => {
     <div className="h-20 bg-white shadow-md">
       {/* Sidebar */}
       <Sidebar />
-      <div className="max-w-screen-xl m-auto flex items-center justify-end lg:justify-between h-full px-8 lg:px-0">
+      <div className="max-w-screen-xl m-auto flex items-center justify-end md:ml-28 md:mr-8 lg:justify-between h-full px-8 lg:px-0">
         <motion.span
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}

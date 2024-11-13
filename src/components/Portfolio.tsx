@@ -2,20 +2,14 @@
 
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
-import { FaReact, FaNodeJs } from "react-icons/fa"; // Import icons for React and Node.js
-import { IoLogoVercel } from "react-icons/io5";
 import {
-  SiTailwindcss,
+  SiMongodb,
   SiNextdotjs,
-  SiMarkdown,
-  SiJavascript,
-  SiCss3,
-  SiHtml5,
-  SiFirebase,
-  SiExpo,
+  SiPrisma,
+  SiTailwindcss,
 } from "react-icons/si";
-import { TbBrandReactNative } from "react-icons/tb";
 
 interface Project {
   id: number;
@@ -28,13 +22,13 @@ interface Project {
 const PROJECTS: Project[] = [
   {
     id: 1,
-    title: "React Commerce",
-    img: "/p.png",
+    title: "Ecommerce Application",
+    img: "/adstore-image.png",
     desc: "E-commerce application built with React and Tailwind CSS.",
     techStack: [
       {
-        name: "React",
-        icon: <FaReact size={20} className="inline-block  text-sky-500" />,
+        name: "NextJs",
+        icon: <SiNextdotjs size={20} className="inline-block" />,
       },
       {
         name: "Tailwind CSS",
@@ -46,72 +40,12 @@ const PROJECTS: Project[] = [
         ),
       },
       {
-        name: "Node.js",
-        icon: <FaNodeJs size={20} className="inline-block text-green-500" />,
-      },
-    ],
-  },
-  {
-    id: 2,
-    title: "Next.js Blog",
-    img: "/p2.png",
-    desc: "A personal blog platform built with Next.js and Markdown.",
-    techStack: [
-      {
-        name: "Next.js",
-        icon: <SiNextdotjs size={20} className="inline-block  text-black" />,
+        name: "Prisma",
+        icon: <SiPrisma size={20} className="inline-block text-green-900" />,
       },
       {
-        name: "Markdown",
-        icon: <SiMarkdown size={20} className="inline-block text-rose-500" />,
-      },
-      {
-        name: "Vercel",
-        icon: <IoLogoVercel className="inline-block text-black" />,
-      },
-    ],
-  },
-  {
-    id: 3,
-    title: "Vanilla JS App",
-    img: "/p3.png",
-    desc: "Simple app using vanilla JavaScript and CSS animations.",
-    techStack: [
-      {
-        name: "JavaScript",
-        icon: (
-          <SiJavascript size={20} className="inline-block text-yellow-500" />
-        ),
-      },
-      {
-        name: "CSS",
-        icon: <SiCss3 size={20} className="inline-block text-blue-500" />,
-      },
-      {
-        name: "HTML",
-        icon: <SiHtml5 size={20} className="inline-block text-orange-600" />,
-      },
-    ],
-  },
-  {
-    id: 4,
-    title: "Music App",
-    img: "/p4.png",
-    desc: "Music streaming app built with React Native and Firebase.",
-    techStack: [
-      {
-        name: "React Native",
-        icon: (
-          <TbBrandReactNative size={20} className="inline-block text-sky-500" />
-        ),
-      }, // Use text or an icon
-      {
-        name: "Firebase",
-        icon: <SiFirebase size={20} className="inline-block text-orange-500" />,
-      },
-      {
-        name: "Expo",
-        icon: <SiExpo size={20} className="inline-block text-black" />,
+        name: "Mongodb",
+        icon: <SiMongodb size={20} className="inline-block text-green-600" />,
       },
     ],
   },
@@ -132,13 +66,12 @@ const Single: React.FC<SingleProps> = ({ item }) => {
         <div className="max-w-screen-xl h-full m-auto flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-[3.125rem] mt-20 lg:mt-8">
           <div
             ref={ref}
-            className="lg:h-[60%] h-[30%] w-[82%] lg:w-[50%] aspect-video lg:aspect-auto"
+            className="lg:h-[60%] h-[30%] w-[82%] lg:w-[45%] aspect-video relative"
           >
             <Image
               src={item.img}
               alt={item.title}
-              width={300}
-              height={300}
+              fill
               unoptimized
               className="w-full h-full object-cover rounded-2xl shadow-lg"
             />
@@ -160,9 +93,12 @@ const Single: React.FC<SingleProps> = ({ item }) => {
                 </span>
               ))}
             </div>
-            <button className="bg-purple-600 text-white font-medium rounded-lg p-3 w-52 mt-4 lg:mt-6 shadow-lg hover:bg-purple-700 transition-all">
-              See Demo
-            </button>
+            <Link
+              href="https://adstore-umber.vercel.app"
+              className="flex items-center justify-center bg-purple-600 text-white font-medium rounded-lg p-3 w-52 mt-4 lg:mt-6 shadow-lg hover:bg-purple-700 transition-all"
+            >
+              Live Url
+            </Link>
           </motion.div>
         </div>
       </div>
